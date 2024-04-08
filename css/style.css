@@ -41,7 +41,8 @@
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
-  --primary-color:                #5bc1ac;
+  /* --primary-color:                #5bc1ac; */
+  --primary-color:                #024156;
   --secondary-color:              #5a6f80;
   --section-bg-color:             #f0f8ff;
   --site-footer-bg-color:         #44525d;
@@ -1645,3 +1646,10 @@ blockquote::before {
   }
 }
 
+@media (max-width: 767px) {
+  .featured-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+}
