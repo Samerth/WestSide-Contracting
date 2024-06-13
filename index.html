@@ -17,7 +17,7 @@
     <link href="css/bootstrap-icons.css" rel="stylesheet">
 
     <link href="css/style.css" rel="stylesheet">
-  
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 </head>
 
@@ -473,6 +473,72 @@
                     </p>
 
                 </div>
+                  <div class="col-lg-3 col-md-12">
+                    <h5 class="text-white mb-4">Photo Gallery</h5>
+                    <div class="row g-2 pt-2" id="gallery">
+                        <!-- Project 1 Images -->
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                            <img class="img-fluid rounded bg-light p-1" src="images/Gallery/IMG_1916.jpeg" alt="Lead-Paint-Removal">
+                        </div>
+                        <!-- <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                            <img class="img-fluid rounded bg-light p-1" src="images/Gallery/IMG_6026.PNG" alt="Lead-Paint-Removal">
+                        </div> -->
+                        <!-- <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                            <img class="img-fluid rounded bg-light p-1" src="img/Photo_Gallery/2.jpg" alt="Lead-Paint-Removal">
+                        </div> -->
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                            <img class="img-fluid rounded bg-light p-1" src="images/Gallery/IMG_6682.jpeg" alt="Lead-Paint-Removal">
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                            <img class="img-fluid rounded bg-light p-1" src="images/Gallery/IMG_6693.jpeg" alt="Lead-Paint-Removal">
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                            <img class="img-fluid rounded bg-light p-1" src="images/Gallery/IMG_6694.jpeg" alt="HMI-Sampling">
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                            <img class="img-fluid rounded bg-light p-1" src="images/Gallery/IMG_6695.jpeg" alt="HMI-Sampling">
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                            <img class="img-fluid rounded bg-light p-1" src="images/Gallery/IMG_6696.jpeg" alt="HMI-Sampling">
+                        </div>
+                        <!-- <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                            <img class="img-fluid rounded bg-light p-1" src="images/Gallery/IMG_6724.png" alt="Drywall-Disposal">
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                            <img class="img-fluid rounded bg-light p-1" src="images/Gallery/IMG_6725.jpeg" alt="Drywall-Disposal">
+                        </div>-->
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6"> 
+                            <img class="img-fluid rounded bg-light p-1" src="images/Gallery/IMG_6937.jpeg"
+                                alt="Drywall-Disposal">
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                            <img class="img-fluid rounded bg-light p-1" src="images/Gallery/IMG_6938.jpeg" alt="Drywall-Disposal">
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                            <img class="img-fluid rounded bg-light p-1" src="images/Gallery/IMG_6939.jpeg" alt="Drywall-Disposal">
+                        </div>
+                        <!-- Add more images as needed -->
+                    </div>
+                </div>
+
+                <!-- Expanded Image Gallery Modal -->
+                <div id="galleryModal" class="modal">
+                    <span class="close-btn">&times;</span>
+                    <div class="modal-content">
+                        <!-- Image slider will be added here -->
+                        <img id="expandedImage" class="expanded-img" src="" alt="Expanded Image">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p class="mb-0">Interested in working with us? Send us an email at <a
+                                href="mailto:info@scottasbestos.com">info@scottasbestos.com</a></p>
+                    </div>
+                </div>
+
+     
+
             </div>
             <div class="text-white" style="text-align: center;">
                 To apply for a career opportunity, please email your resume and cover letter to <a href="mailto:info@westsidecontracting.ca">info@westsidecontracting.ca</a>
@@ -529,7 +595,88 @@
     <script src="js/click-scroll.js"></script>
     <script src="js/counter.js"></script>
     <script src="js/custom.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
 
+        document.addEventListener("DOMContentLoaded", function () {
+            const gallery = document.getElementById("gallery");
+            const images = gallery.getElementsByTagName("img");
+        
+            const modal = document.getElementById("galleryModal");
+            const modalContent = modal.querySelector(".modal-content");
+        
+            for (let img of images) {
+                img.addEventListener("click", function () {
+                    const expandedImgSrc = this.src;
+        
+                    // Clear previous content
+                    modalContent.innerHTML = "";
+        
+                    // Create Swiper container
+                    const swiperContainer = document.createElement("div");
+                    swiperContainer.classList.add("swiper-container");
+        
+                    // Create Swiper wrapper
+                    const swiperWrapper = document.createElement("div");
+                    swiperWrapper.classList.add("swiper-wrapper");
+        
+                    // Create image slides
+                    for (let i = 0; i < images.length; i++) {
+                        const swiperSlide = document.createElement("div");
+                        swiperSlide.classList.add("swiper-slide");
+        
+                        // Create image element
+                        const imgElement = document.createElement("img");
+                        imgElement.src = images[i].src;
+                        imgElement.classList.add("expanded-img");
+        
+                        // Append image to slide
+                        swiperSlide.appendChild(imgElement);
+        
+                        // Append slide to wrapper
+                        swiperWrapper.appendChild(swiperSlide);
+                    }
+        
+                    // Append wrapper to container
+                    swiperContainer.appendChild(swiperWrapper);
+        
+                    // Append container to modal content
+                    modalContent.appendChild(swiperContainer);
+        
+                    // Add navigation buttons
+                    const nextButton = document.createElement("div");
+                    nextButton.classList.add("swiper-button-next");
+                    const prevButton = document.createElement("div");
+                    prevButton.classList.add("swiper-button-prev");
+                    swiperContainer.appendChild(nextButton);
+                    swiperContainer.appendChild(prevButton);
+            
+                    // Initialize Swiper
+                    const swiper = new Swiper(swiperContainer, {
+                        // Swiper options here...
+                        loop: true,
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                    });
+        
+                    // Show modal
+                    modal.style.display = "block";
+                });
+            }
+        
+            // Close modal when clicking close button
+            const closeBtn = modal.querySelector(".close-btn");
+            closeBtn.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
+        
+            
+        });
+        
+        
+        </script>
 </body>
 
 </html>
