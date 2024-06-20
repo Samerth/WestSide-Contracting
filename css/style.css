@@ -1645,80 +1645,36 @@ blockquote::before {
     padding: 25px;
   }
 }
-
-#gallery img {
-  transition: transform 0.3s ease;
-  cursor: pointer;
+.gallery-container {
+  width: 100%;
+  max-width: 624px;
+  margin: auto;
+  position: relative;
 }
-#gallery img:hover {
-  transform: scale(1.2);
+.swiper-container {
+  width: 100%;
+  height: 100%;
 }
-#gallery img.expanded {
-  transform: scale(5.5);
-  z-index: 1;
-}
-
-#gallery.expanded {
+.swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
+  background: #000;
+}
+.swiper-slide img {
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 999;
-  overflow-y: auto;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
 }
-
-
-
-.expanded-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
-  width: 20.08cm;
-  height: 15cm;
-  }
-
-  
-
-/* Add styles for the modal and close button */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  overflow-y: auto;
+.swiper-button-next, .swiper-button-prev {
+  color: white;
 }
-
-.modal-content {
-  position: relative;
-  margin: auto;
-  display: block;
-  max-width: 90%;
-  max-height: 90%;
+.gallery-heading {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
 }
-
-
-.close-btn {
-  color: #fff;
-  font-size: 40px;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  z-index: 999; /* Adjust the z-index value as needed */
-}
-
-
-
 @media (max-width: 767px) {
   .featured-block {
       display: flex;
